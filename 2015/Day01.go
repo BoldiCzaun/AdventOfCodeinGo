@@ -17,18 +17,19 @@ func Day01_main() {
 
 	scanner := bufio.NewScanner(file)
 	scanner.Scan()
-	line := scanner.Text()
-	if err := scanner.Err(); err != nil {
+	lines, err := ReadInput()
+	if err != nil {
 		log.Fatal(err)
 	}
+	line := lines[0]
 
 	fmt.Printf("The input is: %s\n", line)
 
-	part_1(line)
-	part_2(line)
+	D01_p1(line)
+	D01_p2(line)
 }
 
-func part_1(line string) {
+func D01_p1(line string) {
 	fmt.Println("Part 1:")
 	floor := 0
 
@@ -39,15 +40,12 @@ func part_1(line string) {
 			floor--
 		}
 	}
-
 	fmt.Printf("The final floor is: %d\n", floor)
-	for i := 0; i < 80; i++ {
-		fmt.Print("-")
-	}
-	fmt.Println()
+
+	PrintDiv()
 }
 
-func part_2(line string) {
+func D01_p2(line string) {
 	fmt.Println("Part 2:")
 	floor := 0
 
@@ -64,8 +62,5 @@ func part_2(line string) {
 		}
 	}
 
-	for i := 0; i < 80; i++ {
-		fmt.Print("-")
-	}
-	fmt.Println()
+	PrintDiv()
 }

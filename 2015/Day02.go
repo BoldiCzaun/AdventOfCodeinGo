@@ -1,9 +1,8 @@
 package main
 
 import (
-	"bufio"
 	"fmt"
-	"os"
+	"log"
 	"strconv"
 	"strings"
 )
@@ -22,27 +21,17 @@ func newBox(l, w, h int) box {
 	}
 }
 
-func main() {
-	file, err := os.Open("input.txt")
+func Day02_main() {
+	lines, err := ReadInput()
 	if err != nil {
-		fmt.Println("Error opening file:", err)
-		return
+		log.Fatal(err)
 	}
-	defer file.Close()
+	D02_p1(lines)
 
-	scanner := bufio.NewScanner(file)
-	var lines []string
-	for scanner.Scan() {
-		lines = append(lines, scanner.Text())
-	}
+}
 
-	if err := scanner.Err(); err != nil {
-		fmt.Println("Error reading file:", err)
-		return
-	}
-
-	// Now you can use the 'lines' array which contains the multiline input
-	// fmt.Println(lines)
+func D02_p1(lines []string) {
+	fmt.Println("Part 1")
 
 	var boxes []box
 
@@ -67,5 +56,3 @@ func main() {
 
 	fmt.Printf("%d sqrft of paper should be ordered\n", sum)
 }
-
-func part_1(
