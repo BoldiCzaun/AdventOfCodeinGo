@@ -23,6 +23,8 @@ func main() {
 		Day01_main()
 	case 2:
 		Day02_main()
+	case 3:
+		Day03_main()
 	default:
 		log.Fatal("The day you have been asked for has not been implemented yet")
 	}
