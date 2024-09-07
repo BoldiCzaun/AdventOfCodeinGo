@@ -1,6 +1,7 @@
-package main
+package day01
 
 import (
+	utils "aoc2015/utils"
 	"bufio"
 	"fmt"
 	"log"
@@ -17,7 +18,7 @@ func Day01_main() {
 
 	scanner := bufio.NewScanner(file)
 	scanner.Scan()
-	lines, err := ReadInput()
+	lines, err := utils.ReadInput()
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -25,12 +26,12 @@ func Day01_main() {
 
 	fmt.Printf("The input is: %s\n", line)
 
-	fmt.Printf("Part 1:\nThe final floor is: %d\n", D01_p1(line))
-	PrintDiv()
-	fmt.Printf("Part 2:\nThe first position to get to level -1 is: %d\n", D01_p2(line))
+	fmt.Printf("Part 1:\nThe final floor is: %d\n", d01_p1(line))
+	utils.PrintDiv()
+	fmt.Printf("Part 2:\nThe first position to get to level -1 is: %d\n", d01_p2(line))
 }
 
-func D01_p1(line string) (floor int) {
+func d01_p1(line string) (floor int) {
 	floor = 0
 
 	for _, c := range line {
@@ -43,7 +44,7 @@ func D01_p1(line string) (floor int) {
 	return
 }
 
-func D01_p2(line string) int {
+func d01_p2(line string) int {
 	// fmt.Println("Part 2:")
 	floor := 0
 

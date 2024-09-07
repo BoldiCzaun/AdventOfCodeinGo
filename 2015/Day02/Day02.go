@@ -1,6 +1,7 @@
-package main
+package day02
 
 import (
+	utils "aoc2015/utils"
 	"fmt"
 	"log"
 	"strconv"
@@ -22,45 +23,39 @@ func newBox(l, w, h int) box {
 }
 
 func Day02_main() {
-	lines, err := ReadInput()
+	lines, err := utils.ReadInput()
 	if err != nil {
 		log.Fatal(err)
 	}
-	D02_p1(lines)
-	D02_p2(lines)
-
+	fmt.Printf("Part 1:\n%d sqrft of paper should be ordered\n", d02_p1(lines))
+	utils.PrintDiv()
+	fmt.Printf("Part 2:\n%d ft of ribbon is needed\n", d02_p2(lines))
+	utils.PrintDiv()
 }
 
-func D02_p1(lines []string) {
-	fmt.Println("Part 1")
-
+func d02_p1(lines []string) (sum int) {
 	boxes := parse(lines)
-	sum := 0
+	sum = 0
 	for _, b := range boxes {
 		//surface
 		sum += 2 * (b.l*b.w + b.w*b.h + b.h*b.l)
 		// slack
 		sum += min(b.l*b.w, b.w*b.h, b.h*b.l)
 	}
-
-	fmt.Printf("%d sqrft of paper should be ordered\n", sum)
-	PrintDiv()
+	return
 }
 
-func D02_p2(lines []string) {
-	fmt.Println("Part 2")
-
+func d02_p2(lines []string) (sum int) {
 	boxes := parse(lines)
-	sum := 0
+	sum = 0
 	for _, b := range boxes {
 		ribbon := (b.l + b.h + b.w - max(b.l, b.h, b.w)) * 2
 		bow := b.l * b.h * b.w
 		sum += ribbon + bow
 	}
 
-	fmt.Printf("%d ft of ribbon is needed\n", sum)
-	PrintDiv()
-
+	utils.PrintDiv()
+	return
 }
 
 func parse(lines []string) []box {
