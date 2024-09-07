@@ -25,13 +25,13 @@ func Day01_main() {
 
 	fmt.Printf("The input is: %s\n", line)
 
-	D01_p1(line)
-	D01_p2(line)
+	fmt.Printf("Part 1:\nThe final floor is: %d\n", D01_p1(line))
+	PrintDiv()
+	fmt.Printf("Part 2:\nThe first position to get to level -1 is: %d\n", D01_p2(line))
 }
 
-func D01_p1(line string) {
-	fmt.Println("Part 1:")
-	floor := 0
+func D01_p1(line string) (floor int) {
+	floor = 0
 
 	for _, c := range line {
 		if c == '(' {
@@ -40,13 +40,11 @@ func D01_p1(line string) {
 			floor--
 		}
 	}
-	fmt.Printf("The final floor is: %d\n", floor)
-
-	PrintDiv()
+	return
 }
 
-func D01_p2(line string) {
-	fmt.Println("Part 2:")
+func D01_p2(line string) int {
+	// fmt.Println("Part 2:")
 	floor := 0
 
 	for i, c := range line {
@@ -57,10 +55,8 @@ func D01_p2(line string) {
 		}
 
 		if floor == -1 {
-			fmt.Printf("The first position to get to level -1 is: %d\n", (i + 1))
-			break
+			return i + 1
 		}
 	}
-
-	PrintDiv()
+	panic("Didn't reach floor -1")
 }

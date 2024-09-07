@@ -58,3 +58,15 @@ func PrintDiv() {
 	}
 	fmt.Println()
 }
+
+type TestCase struct {
+	input    string
+	expected any
+}
+
+func NewTestCase(input string, expected any) TestCase {
+	return TestCase{
+		input:    input,
+		expected: expected,
+	}
+}
