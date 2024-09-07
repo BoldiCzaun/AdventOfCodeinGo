@@ -54,7 +54,6 @@ func d02_p2(lines []string) (sum int) {
 		sum += ribbon + bow
 	}
 
-	utils.PrintDiv()
 	return
 }
 
