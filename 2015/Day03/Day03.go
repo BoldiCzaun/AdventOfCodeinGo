@@ -15,6 +15,8 @@ func Day03_main() {
 	// fmt.Print(input)
 	fmt.Printf("Part 1:\nNumber of houses visited: %d\n", d03_p1(input))
 	utils.PrintDiv()
+	fmt.Printf("Part 2:\nNumber of houses visited: %d\n", d03_p2(input))
+	utils.PrintDiv()
 }
 
 type coordinate struct {
@@ -39,6 +41,36 @@ func d03_p1(input string) int {
 		}
 		if _, exists := visited[curr]; !exists {
 			visited[curr] = true
+		}
+	}
+
+	return len(visited)
+}
+
+func d03_p2(input string) int {
+	visited := map[coordinate]bool{}
+	visited[coordinate{0, 0}] = true
+	curr := coordinate{0, 0}
+	roboCurr := coordinate{0, 0}
+	for i, d := range input {
+		var c *coordinate
+		if i%2 == 0 {
+			c = &curr
+		} else {
+			c = &roboCurr
+		}
+		switch d {
+		case '<':
+			c.x--
+		case '>':
+			c.x++
+		case 'v':
+			c.y--
+		case '^':
+			c.y++
+		}
+		if _, exists := visited[*c]; !exists {
+			visited[*c] = true
 		}
 	}
 
