@@ -18,7 +18,7 @@ func Day01_main() {
 
 	scanner := bufio.NewScanner(file)
 	scanner.Scan()
-	lines, err := utils.ReadInput()
+	lines, err := utils.ReadInput("day01/input.txt")
 	if err != nil {
 		log.Fatal(err)
 	}
