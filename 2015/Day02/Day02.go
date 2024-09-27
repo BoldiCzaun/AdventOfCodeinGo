@@ -22,7 +22,7 @@ func newBox(l, w, h int) box {
 	}
 }
 
-func Day02_main() {
+func Main() {
 	lines, err := utils.ReadInput("day02/input.txt")
 	if err != nil {
 		log.Fatal(err)

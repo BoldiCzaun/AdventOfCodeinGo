@@ -8,7 +8,7 @@ import (
 	"os"
 )
 
-func Day01_main() {
+func Main() {
 	fmt.Println("The puzzle input:")
 	file, err := os.Open("input.txt")
 	if err != nil {
@@ -28,7 +28,11 @@ func Day01_main() {
 
 	fmt.Printf("Part 1:\nThe final floor is: %d\n", d01_p1(line))
 	utils.PrintDiv()
-	fmt.Printf("Part 2:\nThe first position to get to level -1 is: %d\n", d01_p2(line))
+	p2, err := d01_p2(line)
+	if err != nil {
+		log.Fatal(err)
+	}
+	fmt.Printf("Part 2:\nThe first position to get to level -1 is: %d\n", p2)
 }
 
 func d01_p1(line string) (floor int) {
@@ -44,7 +48,7 @@ func d01_p1(line string) (floor int) {
 	return
 }
 
-func d01_p2(line string) int {
+func d01_p2(line string) (int, error) {
 	// fmt.Println("Part 2:")
 	floor := 0
 
@@ -56,8 +60,8 @@ func d01_p2(line string) int {
 		}
 
 		if floor == -1 {
-			return i + 1
+			return i + 1, nil
 		}
 	}
-	panic("Didn't reach floor -1")
+	return 0, fmt.Errorf("didn't reach floor -1")
 }

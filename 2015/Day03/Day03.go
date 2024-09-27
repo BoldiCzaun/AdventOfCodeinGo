@@ -6,7 +6,7 @@ import (
 	"log"
 )
 
-func Day03_main() {
+func Main() {
 	lines, err := utils.ReadInput("day03/input.txt")
 	if err != nil {
 		log.Panic(err)

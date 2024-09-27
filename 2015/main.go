@@ -4,6 +4,7 @@ import (
 	"aoc2015/day01"
 	"aoc2015/day02"
 	"aoc2015/day03"
+	"aoc2015/day04"
 	"fmt"
 	"log"
 	"os"
@@ -22,11 +23,13 @@ func main() {
 
 	switch dayNo {
 	case 1:
-		day01.Day01_main()
+		day01.Main()
 	case 2:
-		day02.Day02_main()
+		day02.Main()
 	case 3:
-		day03.Day03_main()
+		day03.Main()
+	case 4:
+		day04.Main()
 	default:
 		log.Fatal("The day you have been asked for has not been implemented yet")
 	}

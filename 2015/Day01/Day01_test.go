@@ -21,8 +21,7 @@ func TestDay01_1(t *testing.T) {
 	for _, c := range cases {
 		got := d01_p1(c.Input)
 		if got != c.Expected {
-			t.Logf("ERROR %s should result in %d, but resulted in %d instead", c.Input, c.Expected, got)
-			t.Fail()
+			t.Errorf("ERROR %s should result in %d, but resulted in %d instead", c.Input, c.Expected, got)
 		}
 	}
 }
@@ -34,10 +33,12 @@ func TestDay01_2(t *testing.T) {
 	}
 
 	for _, c := range cases {
-		got := d01_p2(c.Input)
+		got, err := d01_p2(c.Input)
+		if err != nil {
+			t.Error(err)
+		}
 		if got != c.Expected {
-			t.Logf("ERROR %s should result in %d, but resulted in %d instead", c.Input, c.Expected, got)
-			t.Fail()
+			t.Errorf("ERROR %s should result in %d, but resulted in %d instead", c.Input, c.Expected, got)
 		}
 	}
 }
