@@ -18,6 +18,8 @@ func TestDay04_1(t *testing.T) {
 		}
 		if got != c.Expected {
 			t.Errorf("ERROR %s should result in %d, but resulted in %d instead", c.Input, c.Expected, got)
+		} else {
+			t.Logf("SUCCESS %s resulted in %d correctly\n", c.Input, got)
 		}
 	}
 }

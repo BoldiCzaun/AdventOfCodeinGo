@@ -16,6 +16,8 @@ func TestDay03_1(t *testing.T) {
 		got := d03_p1(c.Input)
 		if got != c.Expected {
 			t.Errorf("ERROR %s should result in %d, but resulted in %d instead", c.Input, c.Expected, got)
+		} else {
+			t.Logf("SUCCESS %s resulted in %d correctly\n", c.Input, got)
 		}
 	}
 }
@@ -31,6 +33,8 @@ func TestDay03_2(t *testing.T) {
 		got := d03_p2(c.Input)
 		if got != c.Expected {
 			t.Errorf("ERROR %s should result in %d, but resulted in %d instead", c.Input, c.Expected, got)
+		} else {
+			t.Logf("SUCCESS %s resulted in %d correctly\n", c.Input, got)
 		}
 	}
 }
