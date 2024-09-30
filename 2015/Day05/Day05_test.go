@@ -31,6 +31,7 @@ func TestDay05_2(t *testing.T) {
 		utils.NewTestCase("xxyxx", true),
 		utils.NewTestCase("uurcxstgmygtbstg", false),
 		utils.NewTestCase("ieodomkazucvgmuy", false),
+		utils.NewTestCase("aaa", false),
 	}
 
 	for _, c := range cases {
